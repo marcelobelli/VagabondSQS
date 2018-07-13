@@ -1,0 +1,3 @@
+defmodule VagabondSqs do
+
+end
