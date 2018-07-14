@@ -25,3 +25,6 @@ vagabond_sqs-*.tar
 # VSCode ElixirLS Stuff
 .vscode
 .elixir_ls
+
+# DEV Envs
+.env
