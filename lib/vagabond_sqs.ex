@@ -1,8 +1,9 @@
 defmodule VagabondSqs do
 
-  def process(queue) do
-    queue
-    |> get_payload
+  def process do
+    queue = Application.get_env(:vagabond_sqs, :test_queue)
+
+    get_payload(queue)
     |> get_payload_body
     |> get_message
   end
