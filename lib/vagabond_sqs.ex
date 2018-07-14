@@ -3,7 +3,7 @@ defmodule VagabondSqs do
   def process(queue) do
     queue
     |> get_payload
-    |> get_message_body
+    |> get_payload_body
     |> get_message
   end
 
@@ -13,11 +13,11 @@ defmodule VagabondSqs do
     |> ExAws.request!
   end
 
-  def get_message_body(%{body: %{messages: [message]}}) do
-    Poison.decode!(message.body, keys: :atoms!)
+  def get_payload_body(%{body: %{messages: [message]}}) do
+    Poison.decode!(message.body)
   end
 
-  def get_message(%{Message: message}) do
+  def get_message(%{"Message" => message}) do
     Poison.decode!(message)
   end
 
